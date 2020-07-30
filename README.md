@@ -1,3 +1,11 @@
+# Pollen8 forked version:
+
+Since the package hasn't been updated in a couple of years, we've forked it simply because
+it broke with our webpack build. So this version should fix that, we're so far not actually
+changing any actual code or functionality as it works great for us, we just need it to 
+actually compile...
+
+
 JavaScript port of [HtmlDiff.NET](https://github.com/Rohland/htmldiff.net) which is itself a C# port of the Ruby implementation, [HtmlDiff](https://github.com/myobie/htmldiff/).
 
 Project Description
