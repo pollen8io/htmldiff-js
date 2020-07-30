@@ -1,5 +1,14 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["HtmlDiff"] = factory();
+	else
+		root["HtmlDiff"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -9382,7 +9391,9 @@ var HtmlDiff = function () {
                     this.content.push(text);
                 } else {
                     if (specialCaseOpeningTagRegex.test(words[0])) {
-                        this.specialTagDiffStack.push(words[0]);
+                        var matchedTag = words[0].match(specialCaseOpeningTagRegex);
+                        matchedTag = '<' + matchedTag[0].replace(/(<|>| )/g, '') + '>';
+                        this.specialTagDiffStack.push(matchedTag);
                         specialCaseTagInjection = '<ins class="mod">';
                         if (tag === 'del') {
                             words.shift();
@@ -10170,3 +10181,4 @@ exports.default = Mode;
 
 /***/ })
 /******/ ]);
+});
